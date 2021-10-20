@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>RailsDockerApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+        <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+            <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+                <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
+    <section class="content" style="min-height: auto;">
+        <% flash.each do |key, value| %>
+            <div class="row">
+                <div class="alert alert-<%= key %>">
+                    <%= value %>
+                </div>
+            </div>
+            <% end %>
+    </section>
     <%= yield %>
-  </body>
+</body>
 </html>
